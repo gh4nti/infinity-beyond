@@ -21,7 +21,9 @@ btn.addEventListener("click", () => {
 	menu.classList.toggle("hidden");
 });
 
-// Close Mobile Menu on Link Click
+// Simplified Anchor Click Handler
+// (Smooth scrolling is now handled by html class="scroll-smooth")
+// This only ensures the mobile menu closes when a link is clicked.
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 	anchor.addEventListener("click", () => {
 		menu.classList.add("hidden");
