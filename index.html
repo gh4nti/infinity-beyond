@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Infinity Beyond | Architecture & Interior Design</title>
 
-		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -14,10 +12,10 @@
 			rel="stylesheet"
 		/>
 
-		<!-- Tailwind CSS & Config -->
 		<script src="https://cdn.tailwindcss.com"></script>
 		<script>
 			tailwind.config = {
+				darkMode: "class", // Enables toggle-based dark mode
 				theme: {
 					extend: {
 						fontFamily: {
@@ -44,15 +42,14 @@
 			};
 		</script>
 
-		<!-- Icons -->
 		<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 	</head>
+
 	<body
-		class="bg-stone-50 text-stone-800 font-sans antialiased selection:bg-stone-200 selection:text-stone-900"
+		class="bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-100 font-sans antialiased selection:bg-stone-200 selection:text-stone-900 transition-colors duration-300"
 	>
-		<!-- Navigation -->
 		<nav
-			class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-stone-100 transition-all duration-300"
+			class="fixed w-full z-50 bg-white/90 dark:bg-stone-950/90 backdrop-blur-md border-b border-stone-100 dark:border-stone-800 transition-all duration-300"
 			id="navbar"
 		>
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,90 +59,107 @@
 							<img
 								src="image/logo.png"
 								alt="Infinity Beyond Logo"
-								class="h-10 w-auto object-contain"
+								class="h-10 w-auto object-contain transition-all duration-300 dark:invert"
 							/>
 						</a>
 					</div>
+
 					<div class="hidden md:flex space-x-8 items-center">
 						<a
 							href="#philosophy"
-							class="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors"
+							class="text-sm font-medium text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-colors"
 							>Philosophy</a
 						>
 						<a
 							href="#projects"
-							class="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors"
+							class="text-sm font-medium text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-colors"
 							>Projects</a
 						>
 						<a
 							href="#services"
-							class="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors"
+							class="text-sm font-medium text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-colors"
 							>Services</a
 						>
 						<a
 							href="#process"
-							class="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors"
+							class="text-sm font-medium text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-colors"
 							>Process</a
 						>
+
+						<button
+							id="theme-toggle"
+							class="p-2 text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full transition-colors"
+							aria-label="Toggle Dark Mode"
+						>
+							<i data-lucide="moon" class="w-5 h-5"></i>
+						</button>
+
 						<a
 							href="#contact"
-							class="px-5 py-2.5 bg-stone-900 text-white text-sm font-medium hover:bg-stone-800 transition-colors"
+							class="px-5 py-2.5 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 text-sm font-medium hover:bg-stone-800 dark:hover:bg-stone-200 transition-colors"
 							>Contact Us</a
 						>
 					</div>
-					<!-- Mobile menu button -->
-					<div class="md:hidden flex items-center">
+
+					<div class="md:hidden flex items-center space-x-4">
+						<button
+							id="mobile-theme-toggle"
+							class="text-stone-600 dark:text-stone-300 p-2"
+							aria-label="Toggle Dark Mode"
+						>
+							<i data-lucide="moon" class="w-6 h-6"></i>
+						</button>
 						<button
 							id="mobile-menu-btn"
-							class="text-stone-600 hover:text-stone-900 focus:outline-none"
+							class="text-stone-600 dark:text-stone-300 hover:text-stone-900 focus:outline-none"
 						>
 							<i data-lucide="menu" class="w-6 h-6"></i>
 						</button>
 					</div>
 				</div>
 			</div>
-			<!-- Mobile Menu -->
+
 			<div
 				id="mobile-menu"
-				class="hidden md:hidden bg-white border-t border-stone-100"
+				class="hidden md:hidden bg-white dark:bg-stone-950 border-t border-stone-100 dark:border-stone-800"
 			>
 				<div class="px-4 pt-2 pb-6 space-y-1">
 					<a
 						href="#philosophy"
-						class="block px-3 py-2 text-base font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+						class="block px-3 py-2 text-base font-medium text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-50 dark:hover:bg-stone-900"
 						>Philosophy</a
 					>
 					<a
 						href="#projects"
-						class="block px-3 py-2 text-base font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+						class="block px-3 py-2 text-base font-medium text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-50 dark:hover:bg-stone-900"
 						>Projects</a
 					>
 					<a
 						href="#services"
-						class="block px-3 py-2 text-base font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-50"
+						class="block px-3 py-2 text-base font-medium text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-50 dark:hover:bg-stone-900"
 						>Services</a
 					>
 					<a
 						href="#contact"
-						class="block px-3 py-2 text-base font-medium text-stone-900 font-bold bg-stone-50 mt-4"
+						class="block px-3 py-2 text-base font-medium text-stone-900 dark:text-stone-900 font-bold bg-stone-50 dark:bg-white mt-4"
 						>Schedule Consultation</a
 					>
 				</div>
 			</div>
 		</nav>
 
-		<!-- Hero Section -->
 		<header
 			class="relative h-screen flex items-center justify-center overflow-hidden"
 		>
-			<!-- Background Image with Overlay -->
 			<div class="absolute inset-0 z-0">
 				<img
 					src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2653&auto=format&fit=crop"
 					alt="Modern Minimalist Interior"
 					class="w-full h-full object-cover object-center"
 				/>
-				<div class="absolute inset-0 bg-stone-900/40"></div>
+				<div
+					class="absolute inset-0 bg-stone-900/50 backdrop-blur-[1px]"
+				></div>
 			</div>
 
 			<div
@@ -180,20 +194,24 @@
 			</div>
 		</header>
 
-		<!-- Philosophy Section -->
-		<section id="philosophy" class="py-24 bg-white">
+		<section
+			id="philosophy"
+			class="py-24 bg-white dark:bg-stone-950 transition-colors duration-300"
+		>
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="grid md:grid-cols-2 gap-16 items-center mb-20">
 					<div>
 						<h2
-							class="text-4xl md:text-5xl text-stone-900 mb-6 font-serif"
+							class="text-4xl md:text-5xl text-stone-900 dark:text-white mb-6 font-serif"
 						>
 							Crafting Spaces That Inspire
 						</h2>
-						<div class="w-20 h-1 bg-stone-900 mb-8"></div>
+						<div
+							class="w-20 h-1 bg-stone-900 dark:bg-stone-100 mb-8"
+						></div>
 					</div>
 					<div
-						class="text-lg text-stone-600 leading-relaxed space-y-4"
+						class="text-lg text-stone-600 dark:text-stone-400 leading-relaxed space-y-4"
 					>
 						<p>
 							Architecture and interior design merge seamlessly at
@@ -209,64 +227,67 @@
 				</div>
 
 				<div class="grid md:grid-cols-3 gap-12">
-					<!-- Card 1 -->
 					<div
-						class="group p-8 bg-stone-50 hover:bg-stone-100 transition-colors duration-300 border border-stone-100"
+						class="group p-8 bg-stone-50 dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-300 border border-stone-100 dark:border-stone-800"
 					>
-						<div class="mb-6 text-stone-900">
+						<div class="mb-6 text-stone-900 dark:text-stone-100">
 							<i
 								data-lucide="award"
 								class="w-10 h-10 stroke-1"
 							></i>
 						</div>
 						<h3
-							class="text-xl font-bold text-stone-900 mb-3 font-serif"
+							class="text-xl font-bold text-stone-900 dark:text-white mb-3 font-serif"
 						>
 							Design Excellence
 						</h3>
-						<p class="text-stone-600 leading-relaxed">
+						<p
+							class="text-stone-600 dark:text-stone-400 leading-relaxed"
+						>
 							Award-winning interiors crafted with precision and
 							care, focusing on the finest details.
 						</p>
 					</div>
 
-					<!-- Card 2 -->
 					<div
-						class="group p-8 bg-stone-50 hover:bg-stone-100 transition-colors duration-300 border border-stone-100"
+						class="group p-8 bg-stone-50 dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-300 border border-stone-100 dark:border-stone-800"
 					>
-						<div class="mb-6 text-stone-900">
+						<div class="mb-6 text-stone-900 dark:text-stone-100">
 							<i
 								data-lucide="users"
 								class="w-10 h-10 stroke-1"
 							></i>
 						</div>
 						<h3
-							class="text-xl font-bold text-stone-900 mb-3 font-serif"
+							class="text-xl font-bold text-stone-900 dark:text-white mb-3 font-serif"
 						>
 							Client Partnership
 						</h3>
-						<p class="text-stone-600 leading-relaxed">
+						<p
+							class="text-stone-600 dark:text-stone-400 leading-relaxed"
+						>
 							A collaborative approach ensuring your unique vision
 							comes to life exactly as imagined.
 						</p>
 					</div>
 
-					<!-- Card 3 -->
 					<div
-						class="group p-8 bg-stone-50 hover:bg-stone-100 transition-colors duration-300 border border-stone-100"
+						class="group p-8 bg-stone-50 dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-300 border border-stone-100 dark:border-stone-800"
 					>
-						<div class="mb-6 text-stone-900">
+						<div class="mb-6 text-stone-900 dark:text-stone-100">
 							<i
 								data-lucide="hourglass"
 								class="w-10 h-10 stroke-1"
 							></i>
 						</div>
 						<h3
-							class="text-xl font-bold text-stone-900 mb-3 font-serif"
+							class="text-xl font-bold text-stone-900 dark:text-white mb-3 font-serif"
 						>
 							Timeless Aesthetics
 						</h3>
-						<p class="text-stone-600 leading-relaxed">
+						<p
+							class="text-stone-600 dark:text-stone-400 leading-relaxed"
+						>
 							Spaces designed not just for today, but to remain
 							beautiful and relevant for generations.
 						</p>
@@ -275,7 +296,6 @@
 			</div>
 		</section>
 
-		<!-- Projects Section -->
 		<section id="projects" class="py-24 bg-stone-900 text-white">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="text-center mb-16">
@@ -289,7 +309,6 @@
 				</div>
 
 				<div class="grid lg:grid-cols-3 gap-8">
-					<!-- Project 1: Residential -->
 					<div class="group cursor-pointer">
 						<div class="relative overflow-hidden h-[400px] mb-6">
 							<img
@@ -313,7 +332,6 @@
 						</p>
 					</div>
 
-					<!-- Project 2: Commercial -->
 					<div class="group cursor-pointer">
 						<div class="relative overflow-hidden h-[400px] mb-6">
 							<img
@@ -337,7 +355,6 @@
 						</p>
 					</div>
 
-					<!-- Project 3: Hospitality -->
 					<div class="group cursor-pointer">
 						<div class="relative overflow-hidden h-[400px] mb-6">
 							<img
@@ -364,8 +381,10 @@
 			</div>
 		</section>
 
-		<!-- Services Section -->
-		<section id="services" class="py-24 bg-stone-50">
+		<section
+			id="services"
+			class="py-24 bg-stone-50 dark:bg-stone-950 transition-colors duration-300"
+		>
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="mb-16">
 					<span
@@ -373,11 +392,11 @@
 						>Our Expertise</span
 					>
 					<h2
-						class="text-4xl md:text-5xl mt-2 text-stone-900 font-serif"
+						class="text-4xl md:text-5xl mt-2 text-stone-900 dark:text-white font-serif"
 					>
 						Our Services
 					</h2>
-					<p class="mt-4 text-stone-600 max-w-xl">
+					<p class="mt-4 text-stone-600 dark:text-stone-400 max-w-xl">
 						Comprehensive design solutions tailored to your vision
 						and requirements.
 					</p>
@@ -385,16 +404,20 @@
 
 				<div class="grid md:grid-cols-3 gap-8">
 					<div
-						class="bg-white p-10 shadow-sm border border-stone-100 hover:shadow-md transition-shadow"
+						class="bg-white dark:bg-stone-900 p-10 shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-md transition-all duration-300"
 					>
 						<i
 							data-lucide="building-2"
-							class="w-12 h-12 text-stone-800 mb-6 stroke-1"
+							class="w-12 h-12 text-stone-800 dark:text-stone-200 mb-6 stroke-1"
 						></i>
-						<h3 class="text-xl font-bold mb-4 font-serif">
+						<h3
+							class="text-xl font-bold mb-4 font-serif text-stone-900 dark:text-white"
+						>
 							Architecture
 						</h3>
-						<p class="text-stone-600 leading-relaxed">
+						<p
+							class="text-stone-600 dark:text-stone-400 leading-relaxed"
+						>
 							Complete architectural services from concept to
 							construction, creating designs that harmonize with
 							their environment.
@@ -402,16 +425,20 @@
 					</div>
 
 					<div
-						class="bg-white p-10 shadow-sm border border-stone-100 hover:shadow-md transition-shadow"
+						class="bg-white dark:bg-stone-900 p-10 shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-md transition-all duration-300"
 					>
 						<i
 							data-lucide="sofa"
-							class="w-12 h-12 text-stone-800 mb-6 stroke-1"
+							class="w-12 h-12 text-stone-800 dark:text-stone-200 mb-6 stroke-1"
 						></i>
-						<h3 class="text-xl font-bold mb-4 font-serif">
+						<h3
+							class="text-xl font-bold mb-4 font-serif text-stone-900 dark:text-white"
+						>
 							Interior Design
 						</h3>
-						<p class="text-stone-600 leading-relaxed">
+						<p
+							class="text-stone-600 dark:text-stone-400 leading-relaxed"
+						>
 							Bespoke interiors reflecting your aesthetic and
 							enhancing daily living, with meticulous attention to
 							detail.
@@ -419,16 +446,20 @@
 					</div>
 
 					<div
-						class="bg-white p-10 shadow-sm border border-stone-100 hover:shadow-md transition-shadow"
+						class="bg-white dark:bg-stone-900 p-10 shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-md transition-all duration-300"
 					>
 						<i
 							data-lucide="ruler"
-							class="w-12 h-12 text-stone-800 mb-6 stroke-1"
+							class="w-12 h-12 text-stone-800 dark:text-stone-200 mb-6 stroke-1"
 						></i>
-						<h3 class="text-xl font-bold mb-4 font-serif">
+						<h3
+							class="text-xl font-bold mb-4 font-serif text-stone-900 dark:text-white"
+						>
 							Space Planning
 						</h3>
-						<p class="text-stone-600 leading-relaxed">
+						<p
+							class="text-stone-600 dark:text-stone-400 leading-relaxed"
+						>
 							Strategic solutions for maximizing functionality and
 							flow, transforming spaces into beautiful, efficient
 							environments.
@@ -438,86 +469,101 @@
 			</div>
 		</section>
 
-		<!-- Process Section (From PDF) -->
-		<section id="process" class="py-24 bg-white border-t border-stone-100">
+		<section
+			id="process"
+			class="py-24 bg-white dark:bg-stone-950 border-t border-stone-100 dark:border-stone-800 transition-colors duration-300"
+		>
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<h2 class="text-4xl text-center mb-16 font-serif">
+				<h2
+					class="text-4xl text-center mb-16 font-serif text-stone-900 dark:text-white"
+				>
 					The Design Journey
 				</h2>
 
 				<div class="grid md:grid-cols-4 gap-8 relative">
-					<!-- Connecting Line (Desktop) -->
 					<div
-						class="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-stone-200 -z-10"
+						class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-stone-200 dark:bg-stone-800 -z-10"
 					></div>
 
-					<!-- Step 1 -->
-					<div class="relative bg-white pt-4 md:pt-0">
+					<div
+						class="relative bg-white dark:bg-stone-950 pt-4 md:pt-0"
+					>
 						<div
-							class="w-16 h-16 bg-stone-900 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 ring-8 ring-white"
+							class="w-16 h-16 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 ring-8 ring-white dark:ring-stone-950"
 						>
 							1
 						</div>
 						<h3
-							class="text-lg font-bold text-center mb-2 font-serif"
+							class="text-lg font-bold text-center mb-2 font-serif text-stone-900 dark:text-white"
 						>
 							Consultation & Scope
 						</h3>
-						<p class="text-sm text-center text-stone-500">
+						<p
+							class="text-sm text-center text-stone-500 dark:text-stone-400"
+						>
 							Initial meeting to understand your vision and define
 							project requirements.
 						</p>
 					</div>
 
-					<!-- Step 2 -->
-					<div class="relative bg-white pt-4 md:pt-0">
+					<div
+						class="relative bg-white dark:bg-stone-950 pt-4 md:pt-0"
+					>
 						<div
-							class="w-16 h-16 bg-stone-900 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 ring-8 ring-white"
+							class="w-16 h-16 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 ring-8 ring-white dark:ring-stone-950"
 						>
 							2
 						</div>
 						<h3
-							class="text-lg font-bold text-center mb-2 font-serif"
+							class="text-lg font-bold text-center mb-2 font-serif text-stone-900 dark:text-white"
 						>
 							Concept Development
 						</h3>
-						<p class="text-sm text-center text-stone-500">
+						<p
+							class="text-sm text-center text-stone-500 dark:text-stone-400"
+						>
 							Creating the design direction and presentation of
 							initial ideas.
 						</p>
 					</div>
 
-					<!-- Step 3 -->
-					<div class="relative bg-white pt-4 md:pt-0">
+					<div
+						class="relative bg-white dark:bg-stone-950 pt-4 md:pt-0"
+					>
 						<div
-							class="w-16 h-16 bg-stone-900 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 ring-8 ring-white"
+							class="w-16 h-16 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 ring-8 ring-white dark:ring-stone-950"
 						>
 							3
 						</div>
 						<h3
-							class="text-lg font-bold text-center mb-2 font-serif"
+							class="text-lg font-bold text-center mb-2 font-serif text-stone-900 dark:text-white"
 						>
 							Design Refinement
 						</h3>
-						<p class="text-sm text-center text-stone-500">
+						<p
+							class="text-sm text-center text-stone-500 dark:text-stone-400"
+						>
 							Polishing the details and producing technical
 							documentation.
 						</p>
 					</div>
 
-					<!-- Step 4 -->
-					<div class="relative bg-white pt-4 md:pt-0">
+					<div
+						class="relative bg-white dark:bg-stone-950 pt-4 md:pt-0"
+					>
 						<div
-							class="w-16 h-16 bg-stone-900 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 ring-8 ring-white"
+							class="w-16 h-16 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 ring-8 ring-white dark:ring-stone-950"
 						>
 							4
 						</div>
 						<h3
-							class="text-lg font-bold text-center mb-2 font-serif"
+							class="text-lg font-bold text-center mb-2 font-serif text-stone-900 dark:text-white"
 						>
 							Implementation
 						</h3>
-						<p class="text-sm text-center text-stone-500">
+						<p
+							class="text-sm text-center text-stone-500 dark:text-stone-400"
+						>
 							Project management and construction to bring the
 							vision to life.
 						</p>
@@ -526,11 +572,9 @@
 			</div>
 		</section>
 
-		<!-- Contact / Footer Section -->
 		<section id="contact" class="bg-stone-900 text-stone-300 py-24">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="grid md:grid-cols-2 gap-16">
-					<!-- Text Content -->
 					<div class="space-y-8">
 						<div>
 							<h2
@@ -553,18 +597,40 @@
 							>
 								Connect With Us
 							</h3>
-							<div class="space-y-4">
-								<div class="flex items-center space-x-4">
+							<div class="space-y-6">
+								<div class="flex items-start space-x-4">
 									<i
 										data-lucide="phone"
-										class="w-5 h-5 text-stone-500"
+										class="w-5 h-5 text-stone-500 mt-1"
 									></i>
-									<span
-										>Narenda Rallapalli<br />+91 91333
-										37177<br /><br />Tulasi Pasupuleti<br />+91
-										6305-885023</span
-									>
+									<div class="space-y-4">
+										<div>
+											<span
+												class="block text-xs font-bold text-stone-500 uppercase tracking-widest mb-1"
+											>
+												Narenda Rallapalli
+											</span>
+											<span
+												class="block text-stone-300 tracking-wide"
+											>
+												+91 91333 37177
+											</span>
+										</div>
+										<div>
+											<span
+												class="block text-xs font-bold text-stone-500 uppercase tracking-widest mb-1"
+											>
+												Tulasi Pasupuleti
+											</span>
+											<span
+												class="block text-stone-300 tracking-wide"
+											>
+												+91 6305-885023
+											</span>
+										</div>
+									</div>
 								</div>
+
 								<div class="flex items-center space-x-4">
 									<i
 										data-lucide="mail"
@@ -576,6 +642,7 @@
 										>infinitybeyond.info@gmail.com</a
 									>
 								</div>
+
 								<div class="flex items-start space-x-4">
 									<i
 										data-lucide="map-pin"
@@ -591,9 +658,8 @@
 						</div>
 					</div>
 
-					<!-- Form -->
 					<div
-						class="bg-white text-stone-900 p-8 md:p-10 rounded-sm shadow-xl"
+						class="bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 p-8 md:p-10 rounded-sm shadow-xl h-fit transition-colors duration-300"
 					>
 						<h3 class="text-2xl font-bold mb-6 font-serif">
 							Schedule Consultation
@@ -602,43 +668,56 @@
 							action="https://formsubmit.co/infinitybeyond.info@gmail.com"
 							method="POST"
 						>
-							<div>
+							<input
+								type="hidden"
+								name="_subject"
+								value="New Inquiry: Infinity Beyond"
+							/>
+							<input
+								type="hidden"
+								name="_captcha"
+								value="false"
+							/>
+							<input
+								type="hidden"
+								name="_next"
+								value="https://infinitybeyond.info/thanks.html"
+							/>
+
+							<div class="mb-4">
 								<label
-									class="block text-sm font-medium text-stone-600 mb-1"
+									class="block text-sm font-medium text-stone-600 dark:text-stone-400 mb-1"
 									>Name</label
 								>
-								<!-- 2. Add name="name" and required -->
 								<input
 									type="text"
 									name="name"
-									class="w-full px-4 py-3 border border-stone-300 focus:outline-none focus:border-stone-900 transition-colors"
+									class="w-full px-4 py-3 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-stone-900 dark:focus:border-stone-500 transition-colors"
 									placeholder="Your Name"
 									required
 								/>
 							</div>
-							<div>
+							<div class="mb-4">
 								<label
-									class="block text-sm font-medium text-stone-600 mb-1"
+									class="block text-sm font-medium text-stone-600 dark:text-stone-400 mb-1"
 									>Email</label
 								>
-								<!-- 3. Add name="email" and required -->
 								<input
 									type="email"
 									name="email"
-									class="w-full px-4 py-3 border border-stone-300 focus:outline-none focus:border-stone-900 transition-colors"
+									class="w-full px-4 py-3 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-stone-900 dark:focus:border-stone-500 transition-colors"
 									placeholder="email@example.com"
 									required
 								/>
 							</div>
-							<div>
+							<div class="mb-4">
 								<label
-									class="block text-sm font-medium text-stone-600 mb-1"
+									class="block text-sm font-medium text-stone-600 dark:text-stone-400 mb-1"
 									>Project Type</label
 								>
-								<!-- 4. Add name="project_type" -->
 								<select
 									name="project_type"
-									class="w-full px-4 py-3 border border-stone-300 focus:outline-none focus:border-stone-900 transition-colors bg-white"
+									class="w-full px-4 py-3 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-stone-900 dark:focus:border-stone-500 transition-colors"
 								>
 									<option>Residential</option>
 									<option>Commercial</option>
@@ -646,23 +725,22 @@
 									<option>Other</option>
 								</select>
 							</div>
-							<div>
+							<div class="mb-6">
 								<label
-									class="block text-sm font-medium text-stone-600 mb-1"
+									class="block text-sm font-medium text-stone-600 dark:text-stone-400 mb-1"
 									>Message</label
 								>
-								<!-- 5. Add name="message" and required -->
 								<textarea
 									name="message"
 									rows="4"
-									class="w-full px-4 py-3 border border-stone-300 focus:outline-none focus:border-stone-900 transition-colors"
+									class="w-full px-4 py-3 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-stone-900 dark:focus:border-stone-500 transition-colors"
 									placeholder="Tell us about your project..."
 									required
 								></textarea>
 							</div>
 							<button
 								type="submit"
-								class="w-full bg-stone-900 text-white font-bold py-4 hover:bg-stone-800 transition-colors uppercase tracking-wide"
+								class="w-full bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 font-bold py-4 hover:bg-stone-800 dark:hover:bg-stone-200 transition-colors uppercase tracking-wide"
 							>
 								Send Request
 							</button>
